@@ -38,8 +38,8 @@ Print the block name for the first 100 blocks:
 import pysbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    for block in pysbf.load(sbf_fobj, limit=100):
-        print block['_blockname']
+    for blockName, block in pysbf.load(sbf_fobj, limit=100):
+        print blockName
 ```
       
 Print the azimuth & elevation for each visible satellite using the first 100 *SatVisibility* blocks:
@@ -48,7 +48,7 @@ Print the azimuth & elevation for each visible satellite using the first 100 *Sa
 import pysbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    for block in pysbf.load(sbf_fobj, limit=100, blocknames={'SatVisibility'}):
+    for blockName, block in pysbf.load(sbf_fobj, limit=100, blocknames={'SatVisibility'}):
         for satInfo in block['SatInfo']:
             print satInfo['SVID'], satInfo['Azimuth'], satInfo['Elevation']
 ```
@@ -61,7 +61,7 @@ import numpy as np
 import pysbf as sbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for b in sbf.load(sbf_fobj, 100, {'ReceiverStatus'}) )
+    cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for bn, b in sbf.load(sbf_fobj, 100, {'ReceiverStatus_v2'}) )
     data = np.loadtxt(cpuload)
     plt.xlabel('Time (ms)')
     plt.ylabel('CPU Load (%)')
