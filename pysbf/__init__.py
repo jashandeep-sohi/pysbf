@@ -1,1 +1,1 @@
-from cpysbf.sbf import *
+from sbf import *
