@@ -61,7 +61,7 @@ import numpy as np
 import pysbf as sbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for bn, b in sbf.load(sbf_fobj, 100, {'ReceiverStatus'}) )
+    cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for bn, b in sbf.load(sbf_fobj, 100, {'ReceiverStatus_v2'}) )
     data = np.loadtxt(cpuload)
     plt.xlabel('Time (ms)')
     plt.ylabel('CPU Load (%)')
