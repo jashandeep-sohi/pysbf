@@ -37,8 +37,8 @@ Print the block name for the first 100 blocks:
 import pysbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    for blockName, block in pysbf.load(sbf_fobj, limit=100):
-        print blockName
+ for blockName, block in pysbf.load(sbf_fobj, limit=100):
+  print blockName
 ```
       
 Print the azimuth & elevation for each visible satellite using the first 100 *SatVisibility* blocks:
@@ -47,9 +47,9 @@ Print the azimuth & elevation for each visible satellite using the first 100 *Sa
 import pysbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    for blockName, block in pysbf.load(sbf_fobj, limit=100, blocknames={'SatVisibility'}):
-        for satInfo in block['SatInfo']:
-            print satInfo['SVID'], satInfo['Azimuth'], satInfo['Elevation']
+ for blockName, block in pysbf.load(sbf_fobj, limit=100, blocknames={'SatVisibility'}):
+  for satInfo in block['SatInfo']:
+   print satInfo['SVID'], satInfo['Azimuth'], satInfo['Elevation']
 ```
 
 Combine with matplotlib & numpy for plots. A simple plot of CPU load vs time using the first 100 *ReceiverStatus* blocks:
@@ -60,12 +60,12 @@ import numpy as np
 import pysbf as sbf
     
 with open('./dummy.sbf') as sbf_fobj:
-    cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for bn, b in sbf.load(sbf_fobj, 100, {'ReceiverStatus_v2'}) )
-    data = np.loadtxt(cpuload)
-    plt.xlabel('Time (ms)')
-    plt.ylabel('CPU Load (%)')
-    plt.plot(data[:,0], data[:,1])
-    plt.show()
+ cpuload = ( '{} {}\n'.format(b['TOW'], b['CPULoad']) for bn, b in sbf.load(sbf_fobj, 100, {'ReceiverStatus_v2'}) )
+ data = np.loadtxt(cpuload)
+ plt.xlabel('Time (ms)')
+ plt.ylabel('CPU Load (%)')
+ plt.plot(data[:,0], data[:,1])
+ plt.show()
 ```
 
 ## Issues/Errors
