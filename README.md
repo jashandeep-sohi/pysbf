@@ -21,8 +21,7 @@ For example,
 
 ## Release Notes
 
-v0.2:
-* Up to 100x times faster parsing thanks to Cython. Python module is writen in C and complied for C-like speeds.
+* Up to 100x times faster parsing (than pure Python, thanks to Cython). Python module is writen in C and complied for C-like speeds.
 * All blocks documented in documentation v1.13.0 are now supported.
 
 ## Usage
