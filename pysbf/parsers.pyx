@@ -180,9 +180,9 @@ def IQCorr_toDict(c1 *data):
 
 BLOCKPARSERS['IQCorr'] = IQCorr_toDict
 
-def EndOfAtt_toDict(c1 *data):
- cdef EndOfAtt *sb0
- sb0 = <EndOfAtt *>data
+def EndOfMeas_toDict(c1 *data):
+ cdef EndOfMeas *sb0
+ sb0 = <EndOfMeas *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -190,29 +190,11 @@ def EndOfAtt_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['EndOfAtt'] = EndOfAtt_toDict
+BLOCKPARSERS['EndOfMeas'] = EndOfMeas_toDict
 
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
- 
- block_dict = dict()
- block_dict['TOW'] = sb0.TOW
- block_dict['WNc'] = sb0.WNc
- block_dict['SVID'] = sb0.SVID
- block_dict['CRCPassed'] = sb0.CRCPassed
- block_dict['ViterbiCount'] = sb0.ViterbiCount
- block_dict['Source'] = sb0.Source
- block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
-
- return block_dict
-
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
-
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
+def GPSRawCA_toDict(c1 *data):
+ cdef GPSRawCA *sb0
+ sb0 = <GPSRawCA *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -226,11 +208,11 @@ def QZSRawL5_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
+BLOCKPARSERS['GPSRawCA'] = GPSRawCA_toDict
 
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
+def GPSRawL2C_toDict(c1 *data):
+ cdef GPSRawL2C *sb0
+ sb0 = <GPSRawL2C *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -244,7 +226,25 @@ def QZSRawL5_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
+BLOCKPARSERS['GPSRawL2C'] = GPSRawL2C_toDict
+
+def GPSRawL5_toDict(c1 *data):
+ cdef GPSRawL5 *sb0
+ sb0 = <GPSRawL5 *>data
+ 
+ block_dict = dict()
+ block_dict['TOW'] = sb0.TOW
+ block_dict['WNc'] = sb0.WNc
+ block_dict['SVID'] = sb0.SVID
+ block_dict['CRCPassed'] = sb0.CRCPassed
+ block_dict['ViterbiCount'] = sb0.ViterbiCount
+ block_dict['Source'] = sb0.Source
+ block_dict['FreqNr'] = sb0.FreqNr
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+
+ return block_dict
+
+BLOCKPARSERS['GPSRawL5'] = GPSRawL5_toDict
 
 def GLORawCA_toDict(c1 *data):
  cdef GLORawCA *sb0
@@ -264,9 +264,9 @@ def GLORawCA_toDict(c1 *data):
 
 BLOCKPARSERS['GLORawCA'] = GLORawCA_toDict
 
-def GEORawL1_toDict(c1 *data):
- cdef GEORawL1 *sb0
- sb0 = <GEORawL1 *>data
+def GALRawFNAV_toDict(c1 *data):
+ cdef GALRawFNAV *sb0
+ sb0 = <GALRawFNAV *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -280,11 +280,11 @@ def GEORawL1_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['GEORawL1'] = GEORawL1_toDict
+BLOCKPARSERS['GALRawFNAV'] = GALRawFNAV_toDict
 
-def GEORawL1_toDict(c1 *data):
- cdef GEORawL1 *sb0
- sb0 = <GEORawL1 *>data
+def GALRawINAV_toDict(c1 *data):
+ cdef GALRawINAV *sb0
+ sb0 = <GALRawINAV *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -298,7 +298,7 @@ def GEORawL1_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['GEORawL1'] = GEORawL1_toDict
+BLOCKPARSERS['GALRawINAV'] = GALRawINAV_toDict
 
 def GALRawCNAV_toDict(c1 *data):
  cdef GALRawCNAV *sb0
@@ -336,9 +336,9 @@ def GEORawL1_toDict(c1 *data):
 
 BLOCKPARSERS['GEORawL1'] = GEORawL1_toDict
 
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
+def CMPRaw_toDict(c1 *data):
+ cdef CMPRaw *sb0
+ sb0 = <CMPRaw *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -352,11 +352,11 @@ def QZSRawL5_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
+BLOCKPARSERS['CMPRaw'] = CMPRaw_toDict
 
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
+def QZSRawL1CA_toDict(c1 *data):
+ cdef QZSRawL1CA *sb0
+ sb0 = <QZSRawL1CA *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -370,11 +370,11 @@ def QZSRawL5_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
+BLOCKPARSERS['QZSRawL1CA'] = QZSRawL1CA_toDict
 
-def QZSRawL5_toDict(c1 *data):
- cdef QZSRawL5 *sb0
- sb0 = <QZSRawL5 *>data
+def QZSRawL2C_toDict(c1 *data):
+ cdef QZSRawL2C *sb0
+ sb0 = <QZSRawL2C *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -388,7 +388,7 @@ def QZSRawL5_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['QZSRawL5'] = QZSRawL5_toDict
+BLOCKPARSERS['QZSRawL2C'] = QZSRawL2C_toDict
 
 def QZSRawL5_toDict(c1 *data):
  cdef QZSRawL5 *sb0
@@ -1130,9 +1130,9 @@ def GEOClockEphCovMatrix_toDict(c1 *data):
 
 BLOCKPARSERS['GEOClockEphCovMatrix'] = GEOClockEphCovMatrix_toDict
 
-def ExtEventPVTCartesian_toDict(c1 *data):
- cdef ExtEventPVTCartesian *sb0
- sb0 = <ExtEventPVTCartesian *>data
+def PVTCartesian_v2_toDict(c1 *data):
+ cdef PVTCartesian_v2 *sb0
+ sb0 = <PVTCartesian_v2 *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1161,11 +1161,11 @@ def ExtEventPVTCartesian_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['ExtEventPVTCartesian'] = ExtEventPVTCartesian_toDict
+BLOCKPARSERS['PVTCartesian_v2'] = PVTCartesian_v2_toDict
 
-def ExtEventPVTGeodetic_toDict(c1 *data):
- cdef ExtEventPVTGeodetic *sb0
- sb0 = <ExtEventPVTGeodetic *>data
+def PVTGeodetic_v2_toDict(c1 *data):
+ cdef PVTGeodetic_v2 *sb0
+ sb0 = <PVTGeodetic_v2 *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1194,7 +1194,7 @@ def ExtEventPVTGeodetic_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['ExtEventPVTGeodetic'] = ExtEventPVTGeodetic_toDict
+BLOCKPARSERS['PVTGeodetic_v2'] = PVTGeodetic_v2_toDict
 
 def PosCovCartesian_toDict(c1 *data):
  cdef PosCovCartesian *sb0
@@ -1348,15 +1348,15 @@ def PosCart_toDict(c1 *data):
 
 BLOCKPARSERS['PosCart'] = PosCart_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_SatPos *sb1
+def PVTSatCartesian_toDict(c1 *data):
+ cdef PVTSatCartesian *sb0
+ cdef PVTSatCartesian_SatPos *sb1
  cdef size_t i
  
- cdef InputLink_SatPos **sb1s
+ cdef PVTSatCartesian_SatPos **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <PVTSatCartesian *>data
+ i = sizeof( PVTSatCartesian )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1365,13 +1365,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_SatPos **>malloc( sb0.N * sizeof( InputLink_SatPos * ) )
+ sb1s = <PVTSatCartesian_SatPos **>malloc( sb0.N * sizeof( PVTSatCartesian_SatPos * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['SatPos'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_SatPos*>(data + i)
+  sb1 = sb1s[n] = <PVTSatCartesian_SatPos*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -1388,7 +1388,7 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['PVTSatCartesian'] = PVTSatCartesian_toDict
 
 def PVTResiduals_v2_toDict(c1 *data):
  cdef PVTResiduals_v2 *sb0
@@ -1479,15 +1479,15 @@ def RAIMStatistics_v2_toDict(c1 *data):
 
 BLOCKPARSERS['RAIMStatistics_v2'] = RAIMStatistics_v2_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_SatCorr *sb1
+def GEOCorrections_toDict(c1 *data):
+ cdef GEOCorrections *sb0
+ cdef GEOCorrections_SatCorr *sb1
  cdef size_t i
  
- cdef InputLink_SatCorr **sb1s
+ cdef GEOCorrections_SatCorr **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <GEOCorrections *>data
+ i = sizeof( GEOCorrections )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1496,13 +1496,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_SatCorr **>malloc( sb0.N * sizeof( InputLink_SatCorr * ) )
+ sb1s = <GEOCorrections_SatCorr **>malloc( sb0.N * sizeof( GEOCorrections_SatCorr * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['SatCorr'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_SatCorr*>(data + i)
+  sb1 = sb1s[n] = <GEOCorrections_SatCorr*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -1527,17 +1527,17 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['GEOCorrections'] = GEOCorrections_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_VectorInfoCart *sb1
+def BaseVectorCart_toDict(c1 *data):
+ cdef BaseVectorCart *sb0
+ cdef BaseVectorCart_VectorInfoCart *sb1
  cdef size_t i
  
- cdef InputLink_VectorInfoCart **sb1s
+ cdef BaseVectorCart_VectorInfoCart **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <BaseVectorCart *>data
+ i = sizeof( BaseVectorCart )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1546,13 +1546,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_VectorInfoCart **>malloc( sb0.N * sizeof( InputLink_VectorInfoCart * ) )
+ sb1s = <BaseVectorCart_VectorInfoCart **>malloc( sb0.N * sizeof( BaseVectorCart_VectorInfoCart * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['VectorInfoCart'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_VectorInfoCart*>(data + i)
+  sb1 = sb1s[n] = <BaseVectorCart_VectorInfoCart*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -1575,17 +1575,17 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['BaseVectorCart'] = BaseVectorCart_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_VectorInfoGeod *sb1
+def BaseVectorGeod_toDict(c1 *data):
+ cdef BaseVectorGeod *sb0
+ cdef BaseVectorGeod_VectorInfoGeod *sb1
  cdef size_t i
  
- cdef InputLink_VectorInfoGeod **sb1s
+ cdef BaseVectorGeod_VectorInfoGeod **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <BaseVectorGeod *>data
+ i = sizeof( BaseVectorGeod )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1594,13 +1594,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_VectorInfoGeod **>malloc( sb0.N * sizeof( InputLink_VectorInfoGeod * ) )
+ sb1s = <BaseVectorGeod_VectorInfoGeod **>malloc( sb0.N * sizeof( BaseVectorGeod_VectorInfoGeod * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['VectorInfoGeod'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_VectorInfoGeod*>(data + i)
+  sb1 = sb1s[n] = <BaseVectorGeod_VectorInfoGeod*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -1623,11 +1623,11 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['BaseVectorGeod'] = BaseVectorGeod_toDict
 
-def EndOfAtt_toDict(c1 *data):
- cdef EndOfAtt *sb0
- sb0 = <EndOfAtt *>data
+def PVTSupport_toDict(c1 *data):
+ cdef PVTSupport *sb0
+ sb0 = <PVTSupport *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1635,11 +1635,11 @@ def EndOfAtt_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['EndOfAtt'] = EndOfAtt_toDict
+BLOCKPARSERS['PVTSupport'] = PVTSupport_toDict
 
-def EndOfAtt_toDict(c1 *data):
- cdef EndOfAtt *sb0
- sb0 = <EndOfAtt *>data
+def EndOfPVT_toDict(c1 *data):
+ cdef EndOfPVT *sb0
+ sb0 = <EndOfPVT *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1647,7 +1647,7 @@ def EndOfAtt_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['EndOfAtt'] = EndOfAtt_toDict
+BLOCKPARSERS['EndOfPVT'] = EndOfPVT_toDict
 
 def IntPVCart_toDict(c1 *data):
  cdef IntPVCart *sb0
@@ -1860,15 +1860,15 @@ def IntPVAAGeod_toDict(c1 *data):
 
 BLOCKPARSERS['IntPVAAGeod'] = IntPVAAGeod_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_AuxAntPosition *sb1
+def AuxAntPositions_toDict(c1 *data):
+ cdef AuxAntPositions *sb0
+ cdef AuxAntPositions_AuxAntPosition *sb1
  cdef size_t i
  
- cdef InputLink_AuxAntPosition **sb1s
+ cdef AuxAntPositions_AuxAntPosition **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <AuxAntPositions *>data
+ i = sizeof( AuxAntPositions )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -1877,13 +1877,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_AuxAntPosition **>malloc( sb0.N * sizeof( InputLink_AuxAntPosition * ) )
+ sb1s = <AuxAntPositions_AuxAntPosition **>malloc( sb0.N * sizeof( AuxAntPositions_AuxAntPosition * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['AuxAntPosition'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_AuxAntPosition*>(data + i)
+  sb1 = sb1s[n] = <AuxAntPositions_AuxAntPosition*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -1901,7 +1901,7 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['AuxAntPositions'] = AuxAntPositions_toDict
 
 def AttEuler_toDict(c1 *data):
  cdef AttEuler *sb0
@@ -2108,15 +2108,15 @@ def BaseStation_toDict(c1 *data):
 
 BLOCKPARSERS['BaseStation'] = BaseStation_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_TrackData *sb1
+def LBandTrackerStatus_toDict(c1 *data):
+ cdef LBandTrackerStatus *sb0
+ cdef LBandTrackerStatus_TrackData *sb1
  cdef size_t i
  
- cdef InputLink_TrackData **sb1s
+ cdef LBandTrackerStatus_TrackData **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <LBandTrackerStatus *>data
+ i = sizeof( LBandTrackerStatus )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2125,13 +2125,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_TrackData **>malloc( sb0.N * sizeof( InputLink_TrackData * ) )
+ sb1s = <LBandTrackerStatus_TrackData **>malloc( sb0.N * sizeof( LBandTrackerStatus_TrackData * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['TrackData'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_TrackData*>(data + i)
+  sb1 = sb1s[n] = <LBandTrackerStatus_TrackData*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -2149,11 +2149,11 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['LBandTrackerStatus'] = LBandTrackerStatus_toDict
 
-def LBAS1DecoderStatus_toDict(c1 *data):
- cdef LBAS1DecoderStatus *sb0
- sb0 = <LBAS1DecoderStatus *>data
+def DecoderStatus_toDict(c1 *data):
+ cdef DecoderStatus *sb0
+ sb0 = <DecoderStatus *>data
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2166,7 +2166,7 @@ def LBAS1DecoderStatus_toDict(c1 *data):
 
  return block_dict
 
-BLOCKPARSERS['LBAS1DecoderStatus'] = LBAS1DecoderStatus_toDict
+BLOCKPARSERS['DecoderStatus'] = DecoderStatus_toDict
 
 def LBAS1Messages_toDict(c1 *data):
  cdef LBAS1Messages *sb0
@@ -2183,15 +2183,15 @@ def LBAS1Messages_toDict(c1 *data):
 
 BLOCKPARSERS['LBAS1Messages'] = LBAS1Messages_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_MeasSet *sb1
+def ExtSensorMeas_toDict(c1 *data):
+ cdef ExtSensorMeas *sb0
+ cdef ExtSensorMeas_MeasSet *sb1
  cdef size_t i
  
- cdef InputLink_MeasSet **sb1s
+ cdef ExtSensorMeas_MeasSet **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <ExtSensorMeas *>data
+ i = sizeof( ExtSensorMeas )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2200,13 +2200,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_MeasSet **>malloc( sb0.N * sizeof( InputLink_MeasSet * ) )
+ sb1s = <ExtSensorMeas_MeasSet **>malloc( sb0.N * sizeof( ExtSensorMeas_MeasSet * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['MeasSet'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_MeasSet*>(data + i)
+  sb1 = sb1s[n] = <ExtSensorMeas_MeasSet*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -2221,7 +2221,7 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['ExtSensorMeas'] = ExtSensorMeas_toDict
 
 def ExtSensorStatus_toDict(c1 *data):
  cdef ExtSensorStatus *sb0
@@ -2249,15 +2249,15 @@ def ExtSensorStatus_toDict(c1 *data):
 
 BLOCKPARSERS['ExtSensorStatus'] = ExtSensorStatus_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_OneSensor *sb1
+def ExtSensorSetup_toDict(c1 *data):
+ cdef ExtSensorSetup *sb0
+ cdef ExtSensorSetup_OneSensor *sb1
  cdef size_t i
  
- cdef InputLink_OneSensor **sb1s
+ cdef ExtSensorSetup_OneSensor **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <ExtSensorSetup *>data
+ i = sizeof( ExtSensorSetup )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2266,13 +2266,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_OneSensor **>malloc( sb0.N * sizeof( InputLink_OneSensor * ) )
+ sb1s = <ExtSensorSetup_OneSensor **>malloc( sb0.N * sizeof( ExtSensorSetup_OneSensor * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['OneSensor'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_OneSensor*>(data + i)
+  sb1 = sb1s[n] = <ExtSensorSetup_OneSensor*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -2283,19 +2283,19 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['ExtSensorSetup'] = ExtSensorSetup_toDict
 
-def OutputLink_toDict(c1 *data):
- cdef OutputLink *sb0
- cdef OutputLink_ChannelSatInfo *sb1
- cdef OutputLink_ChannelStateInfo *sb2
+def ChannelStatus_toDict(c1 *data):
+ cdef ChannelStatus *sb0
+ cdef ChannelStatus_ChannelSatInfo *sb1
+ cdef ChannelStatus_ChannelStateInfo *sb2
  cdef size_t i
  
- cdef OutputLink_ChannelSatInfo **sb1s
- cdef OutputLink_ChannelStateInfo ***sb2s
+ cdef ChannelStatus_ChannelSatInfo **sb1s
+ cdef ChannelStatus_ChannelStateInfo ***sb2s
  
- sb0 = <OutputLink *>data
- i = sizeof( OutputLink )
+ sb0 = <ChannelStatus *>data
+ i = sizeof( ChannelStatus )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2305,14 +2305,14 @@ def OutputLink_toDict(c1 *data):
  block_dict['SB2Length'] = sb0.SB2Length
 
  
- sb1s = <OutputLink_ChannelSatInfo **>malloc( sb0.N1 * sizeof( OutputLink_ChannelSatInfo * ) )
- sb2s = <OutputLink_ChannelStateInfo ***>malloc( sb0.N1 * sizeof( OutputLink_ChannelSatInfo * ) )
+ sb1s = <ChannelStatus_ChannelSatInfo **>malloc( sb0.N1 * sizeof( ChannelStatus_ChannelSatInfo * ) )
+ sb2s = <ChannelStatus_ChannelStateInfo ***>malloc( sb0.N1 * sizeof( ChannelStatus_ChannelSatInfo * ) )
  
  sb1_list = [None] * sb0.N1
  block_dict['ChannelSatInfo'] = sb1_list
  
  for n1 in xrange(sb0.N1):
-  sb1 = sb1s[n1] = <OutputLink_ChannelSatInfo*>(data + i)
+  sb1 = sb1s[n1] = <ChannelStatus_ChannelSatInfo*>(data + i)
   i += sb0.SB1Length
   sb1_dict = dict()
   sb1_list[n1] = sb1_dict
@@ -2325,12 +2325,12 @@ def OutputLink_toDict(c1 *data):
   sb1_dict['RxChannel'] = sb1.RxChannel
 
   
-  sb2s[n1] = <OutputLink_ChannelStateInfo **>malloc( sb1.N2 * sizeof( OutputLink_ChannelStateInfo * ) )
+  sb2s[n1] = <ChannelStatus_ChannelStateInfo **>malloc( sb1.N2 * sizeof( ChannelStatus_ChannelStateInfo * ) )
   sb2_list = [None] * sb1.N2
   sb1_dict['ChannelStateInfo'] = sb2_list
   
   for n2 in xrange(sb1.N2):
-   sb2 = sb2s[n1][n2] = <OutputLink_ChannelStateInfo*>(data + i)
+   sb2 = sb2s[n1][n2] = <ChannelStatus_ChannelStateInfo*>(data + i)
    i += sb0.SB2Length
    sb2_dict = dict()
    sb2_list[n2] = sb2_dict
@@ -2344,7 +2344,7 @@ def OutputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['OutputLink'] = OutputLink_toDict
+BLOCKPARSERS['ChannelStatus'] = ChannelStatus_toDict
 
 def ReceiverStatus_v2_toDict(c1 *data):
  cdef ReceiverStatus_v2 *sb0
@@ -2388,15 +2388,15 @@ def ReceiverStatus_v2_toDict(c1 *data):
 
 BLOCKPARSERS['ReceiverStatus_v2'] = ReceiverStatus_v2_toDict
 
-def InputLink_toDict(c1 *data):
- cdef InputLink *sb0
- cdef InputLink_SatInfo *sb1
+def SatVisibility_toDict(c1 *data):
+ cdef SatVisibility *sb0
+ cdef SatVisibility_SatInfo *sb1
  cdef size_t i
  
- cdef InputLink_SatInfo **sb1s
+ cdef SatVisibility_SatInfo **sb1s
  
- sb0 = <InputLink *>data
- i = sizeof( InputLink )
+ sb0 = <SatVisibility *>data
+ i = sizeof( SatVisibility )
  
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
@@ -2405,13 +2405,13 @@ def InputLink_toDict(c1 *data):
  block_dict['SBLength'] = sb0.SBLength
 
  
- sb1s = <InputLink_SatInfo **>malloc( sb0.N * sizeof( InputLink_SatInfo * ) )
+ sb1s = <SatVisibility_SatInfo **>malloc( sb0.N * sizeof( SatVisibility_SatInfo * ) )
  
  sb1_list = [None] * sb0.N
  block_dict['SatInfo'] = sb1_list
  
  for n in xrange(sb0.N):
-  sb1 = sb1s[n] = <InputLink_SatInfo*>(data + i)
+  sb1 = sb1s[n] = <SatVisibility_SatInfo*>(data + i)
   i += sb0.SBLength
   sb1_dict = dict()
   sb1_list[n] = sb1_dict
@@ -2425,7 +2425,7 @@ def InputLink_toDict(c1 *data):
  free(sb1s)
  return block_dict
 
-BLOCKPARSERS['InputLink'] = InputLink_toDict
+BLOCKPARSERS['SatVisibility'] = SatVisibility_toDict
 
 def InputLink_toDict(c1 *data):
  cdef InputLink *sb0

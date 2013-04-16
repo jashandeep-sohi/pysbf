@@ -248,8 +248,7 @@ def sb_dictTxt(blockDef, dict_name, sb_name, indent, ignore={}):
      s += indent_str + it.format(dict_name=dict_name, pName=pName, sb_name=sb_name)
  return s
  
-def sb0_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def sb0_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -262,11 +261,8 @@ def sb0_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
  
-def sb1_txt(sb0_blockDef, sb1_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def sb1_txt(sb0_blockDef, sb0_name, sb1_blockDef, sb1_name):
  sb0_st_name = sb0_name
- 
- sb1_name = BLOCKDEF_NAME[sb1_blockDef]
  sb1_st_name = '{}_{}'.format(sb0_name, sb1_name)
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -282,14 +278,9 @@ def sb1_txt(sb0_blockDef, sb1_blockDef):
  func_txt = SB1_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def sb2_txt(sb0_blockDef, sb1_blockDef, sb2_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def sb2_txt(sb0_blockDef, sb0_name, sb1_blockDef, sb1_name, sb2_blockDef, sb2_name):
  sb0_st_name = sb0_name
- 
- sb1_name = BLOCKDEF_NAME[sb1_blockDef]
  sb1_st_name = '{}_{}'.format(sb0_name, sb1_name)
- 
- sb2_name = BLOCKDEF_NAME[sb2_blockDef]
  sb2_st_name = '{}_{}'.format(sb0_name, sb2_name)
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -309,8 +300,7 @@ def sb2_txt(sb0_blockDef, sb1_blockDef, sb2_blockDef):
  func_txt = SB2_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def GalSARRLM_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def GalSARRLM_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -328,8 +318,7 @@ def GalSARRLM_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def GEOPRNMask_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def GEOPRNMask_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -344,8 +333,7 @@ def GEOPRNMask_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def GEOIGPMask_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def GEOIGPMask_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -360,14 +348,9 @@ def GEOIGPMask_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt 
 
-def PVTResiduals_txt(sb0_blockDef, sb1_blockDef, sb2_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def PVTResiduals_txt(sb0_blockDef, sb0_name, sb1_blockDef, sb1_name, sb2_blockDef, sb2_name):
  sb0_st_name = sb0_name
- 
- sb1_name = BLOCKDEF_NAME[sb1_blockDef]
  sb1_st_name = '{}_{}'.format(sb0_name, sb1_name)
- 
- sb2_name = BLOCKDEF_NAME[sb2_blockDef]
  sb2_st_name = '{}_{}'.format(sb0_name, sb2_name)
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -386,8 +369,7 @@ def PVTResiduals_txt(sb0_blockDef, sb1_blockDef, sb2_blockDef):
  func_txt = PVTResiduals_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def LBAS1Messages_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def LBAS1Messages_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -402,8 +384,7 @@ def LBAS1Messages_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def ExtSensorStatus_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def ExtSensorStatus_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -427,8 +408,7 @@ def ExtSensorStatus_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def Comment_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def Comment_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -443,8 +423,7 @@ def Comment_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def BBSamples_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def BBSamples_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -459,8 +438,7 @@ def BBSamples_txt(sb0_blockDef):
  func_txt = SB0_CYFUNC_TEMPLATE.format(**func_d)
  return struct_txt, func_txt
 
-def ASCIIIn_txt(sb0_blockDef):
- sb0_name = BLOCKDEF_NAME[sb0_blockDef]
+def ASCIIIn_txt(sb0_blockDef, sb0_name):
  sb0_st_name = sb0_name
  
  struct_txt = blockDef_cyStructTxt(sb0_blockDef, sb0_st_name)
@@ -477,101 +455,104 @@ def ASCIIIn_txt(sb0_blockDef):
 
 def writeParserFiles(pyx_filename, pxd_filename):
  blockname_cythontxt = (
-  ('MeasEpoch_v2', sb2_txt(MeasEpoch_v2, MeasEpoch_v2_Type_1, MeasEpoch_v2_Type_2) ),
-  ('MeasExtra', sb1_txt(MeasExtra, MeasExtra_MeasExtraChannel) ),
-  ('IQCorr', sb1_txt(IQCorr, IQCorr_CorrChannel) ),
-  ('EndOfMeas', sb0_txt(EndOfMeas) ),
-  ('GPSRawCA', sb0_txt(GPSRawCA) ),
-  ('GPSRawL2C', sb0_txt(GPSRawL2C) ),
-  ('GPSRawL5', sb0_txt(GPSRawL5) ),
-  ('GLORawCA', sb0_txt(GLORawCA) ),
-  ('GALRawFNAV', sb0_txt(GALRawFNAV) ),
-  ('GALRawINAV', sb0_txt(GALRawINAV) ),
-  ('GALRawCNAV', sb0_txt(GALRawCNAV) ),
-  ('GEORawL1', sb0_txt(GEORawL1) ),
-  ('CMPRaw', sb0_txt(CMPRaw) ),
-  ('QZSRawL1CA', sb0_txt(QZSRawL1CA) ),
-  ('QZSRawL2C', sb0_txt(QZSRawL2C) ),
-  ('QZSRawL5', sb0_txt(QZSRawL5) ),
-  ('GPSNav', sb0_txt(GPSNav) ),
-  ('GPSAlm', sb0_txt(GPSAlm) ),
-  ('GPSIon', sb0_txt(GPSIon) ),
-  ('GPSUtc', sb0_txt(GPSUtc) ),
-  ('GLONav', sb0_txt(GLONav) ),
-  ('GLOTime', sb0_txt(GLOTime) ),
-  ('GalNav', sb0_txt(GalNav) ),
-  ('GalAlm', sb0_txt(GalAlm) ),
-  ('GalIon', sb0_txt(GalIon) ),
-  ('GalUtc', sb0_txt(GalUtc) ),
-  ('GalGstGps', sb0_txt(GalGstGps) ),
-  ('GalSARRLM', GalSARRLM_txt(GalSARRLM) ),
-  ('GEOMT00', sb0_txt(GEOMT00) ),
-  ('GEOPRNMask', GEOPRNMask_txt(GEOPRNMask) ),
-  ('GEOFastCorr', sb1_txt(GEOFastCorr, GEOFastCorr_FastCorr) ),
-  ('GEOIntegrity', sb0_txt(GEOIntegrity) ),
-  ('GEOFastCorrDegr', sb0_txt(GEOFastCorrDegr) ),
-  ('GEODegrFactors', sb0_txt(GEODegrFactors) ),
-  ('GEONetworkTime', sb0_txt(GEONetworkTime) ),
-  ('GEONav', sb0_txt(GEONav) ),
-  ('GEOAlm', sb0_txt(GEOAlm) ),
-  ('GEOIGPMask', GEOIGPMask_txt(GEOIGPMask) ),
-  ('GEOLongTermCorr', sb1_txt(GEOLongTermCorr, GEOLongTermCorr_LTCorr) ),
-  ('GEOIonoDelay', sb1_txt(GEOIonoDelay, GEOIonoDelay_IDC) ),
-  ('GEOServiceLevel', sb1_txt(GEOServiceLevel, GEOServiceLevel_ServiceRegion) ),
-  ('GEOClockEphCovMatrix', sb1_txt(GEOClockEphCovMatrix, GEOClockEphCovMatrix_CovMatrix) ),
-  ('PVTCartesian_v2', sb0_txt(PVTCartesian_v2) ),
-  ('PVTGeodetic_v2', sb0_txt(PVTGeodetic_v2) ),
-  ('PosCovCartesian', sb0_txt(PosCovCartesian) ),
-  ('PosCovGeodetic', sb0_txt(PosCovGeodetic) ),
-  ('VelCovCartesian', sb0_txt(VelCovCartesian) ),
-  ('VelCovGeodetic', sb0_txt(VelCovGeodetic) ),
-  ('DOP_v2', sb0_txt(DOP_v2) ),
-  ('PosCart', sb0_txt(PosCart) ),
-  ('PVTSatCartesian', sb1_txt(PVTSatCartesian, PVTSatCartesian_SatPos) ),
-  ('PVTResiduals_v2', PVTResiduals_txt(PVTResiduals_v2, PVTResiduals_v2_SatSignalInfo, PVTResiduals_v2_ResidualInfo) ),
-  ('RAIMStatistics_v2', sb0_txt(RAIMStatistics_v2) ),
-  ('GEOCorrections', sb1_txt(GEOCorrections, GEOCorrections_SatCorr) ),
-  ('BaseVectorCart', sb1_txt(BaseVectorCart, BaseVectorCart_VectorInfoCart) ),
-  ('BaseVectorGeod', sb1_txt(BaseVectorGeod, BaseVectorGeod_VectorInfoGeod) ),
-  ('PVTSupport', sb0_txt(PVTSupport) ),
-  ('EndOfPVT', sb0_txt(EndOfPVT) ),
-  ('IntPVCart', sb0_txt(IntPVCart) ),
-  ('IntPVGeod', sb0_txt(IntPVGeod) ),
-  ('IntPosCovCart', sb0_txt(IntPosCovCart) ),
-  ('IntVelCovCart', sb0_txt(IntVelCovCart) ),
-  ('IntPosCovGeod', sb0_txt(IntPosCovGeod) ),
-  ('IntVelCovGeod', sb0_txt(IntVelCovGeod) ),
-  ('IntAttEuler', sb0_txt(IntAttEuler) ),
-  ('IntAttCovEuler', sb0_txt(IntAttCovEuler) ),
-  ('IntPVAAGeod', sb0_txt(IntPVAAGeod) ),
-  ('AuxAntPositions', sb1_txt(AuxAntPositions, AuxAntPositions_AuxAntPosition) ),
-  ('AttEuler', sb0_txt(AttEuler) ),
-  ('AttCovEuler', sb0_txt(AttCovEuler) ),
-  ('EndOfAtt', sb0_txt(EndOfAtt) ),
-  ('ReceiverTime', sb0_txt(ReceiverTime) ),
-  ('xPPSOffset', sb0_txt(xPPSOffset) ),
-  ('ExtEvent', sb0_txt(ExtEvent) ) ,
-  ('ExtEventPVTCartesian', sb0_txt(ExtEventPVTCartesian) ),
-  ('ExtEventPVTGeodetic', sb0_txt(ExtEventPVTGeodetic) ),
-  ('DiffCorrIn', sb0_txt(DiffCorrIn) ),
-  ('BaseStation', sb0_txt(BaseStation) ),
-  ('LBandTrackerStatus', sb1_txt(LBandTrackerStatus, LBandTrackerStatus_TrackData) ),
-  ('LBAS1DecoderStatus', sb0_txt(LBAS1DecoderStatus) ),
-  ('LBAS1Messages', LBAS1Messages_txt(LBAS1Messages) ),
-  ('ExtSensorMeas', sb1_txt(ExtSensorMeas, ExtSensorMeas_MeasSet) ),
-  ('ExtSensorStatus', ExtSensorStatus_txt(ExtSensorStatus) ),
-  ('ExtSensorSetup', sb1_txt(ExtSensorSetup, ExtSensorSetup_OneSensor) ),
-  ('ChannelStatus', sb2_txt(ChannelStatus, ChannelStatus_ChannelSatInfo, ChannelStatus_ChannelStateInfo) ),
-  ('ReceiverStatus_v2', sb1_txt(ReceiverStatus_v2, ReceiverStatus_v2_AGCData) ),
-  ('SatVisibility', sb1_txt(SatVisibility, SatVisibility_SatInfo) ),
-  ('InputLink', sb1_txt(InputLink, InputLink_InputStats) ),
-  ('OutputLink', sb2_txt(OutputLink, OutputLink_OutputStats, OutputLink_OutputType) ),
-  ('IPStatus', sb0_txt(IPStatus) ),
-  ('ReceiverSetup', sb0_txt(ReceiverSetup) ),
-  ('Commands', sb0_txt(Commands) ),
-  ('Comment', Comment_txt(Comment) ),
-  ('BBSamples', BBSamples_txt(BBSamples) ),
-  ('ASCIIIn', ASCIIIn_txt(ASCIIIn) ),
+  ('MeasEpoch_v2', sb2_txt(MeasEpoch_v2, 'MeasEpoch_v2', MeasEpoch_v2_Type_1, 'Type_1', MeasEpoch_v2_Type_2, 'Type_2') ),
+  ('MeasExtra', sb1_txt(MeasExtra, 'MeasExtra', MeasExtra_MeasExtraChannel, 'MeasExtraChannel') ),
+  ('IQCorr', sb1_txt(IQCorr, 'IQCorr', IQCorr_CorrChannel, 'CorrChannel') ),
+  ('EndOfMeas', sb0_txt(EndOfMeas, 'EndOfMeas') ),
+  ('GPSRawCA', sb0_txt(GPSRawCA, 'GPSRawCA') ),
+  ('GPSRawL2C', sb0_txt(GPSRawL2C, 'GPSRawL2C') ),
+  ('GPSRawL5', sb0_txt(GPSRawL5, 'GPSRawL5') ),
+  ('GLORawCA', sb0_txt(GLORawCA, 'GLORawCA') ),
+  ('GALRawFNAV', sb0_txt(GALRawFNAV, 'GALRawFNAV') ),
+  ('GALRawINAV', sb0_txt(GALRawINAV, 'GALRawINAV') ),
+  ('GALRawCNAV', sb0_txt(GALRawCNAV, 'GALRawCNAV') ),
+  ('GEORawL1', sb0_txt(GEORawL1, 'GEORawL1') ),
+  ('CMPRaw', sb0_txt(CMPRaw, 'CMPRaw') ),
+  ('QZSRawL1CA', sb0_txt(QZSRawL1CA, 'QZSRawL1CA') ),
+  ('QZSRawL2C', sb0_txt(QZSRawL2C, 'QZSRawL2C') ),
+  ('QZSRawL5', sb0_txt(QZSRawL5, 'QZSRawL5') ),
+  ('GPSNav', sb0_txt(GPSNav, 'GPSNav') ),
+  ('GPSAlm', sb0_txt(GPSAlm, 'GPSAlm') ),
+  ('GPSIon', sb0_txt(GPSIon, 'GPSIon') ),
+  ('GPSUtc', sb0_txt(GPSUtc, 'GPSUtc') ),
+  ('GLONav', sb0_txt(GLONav, 'GLONav') ),
+  ('GLOTime', sb0_txt(GLOTime, 'GLOTime') ),
+  ('GalNav', sb0_txt(GalNav, 'GalNav') ),
+  ('GalAlm', sb0_txt(GalAlm, 'GalAlm') ),
+  ('GalIon', sb0_txt(GalIon, 'GalIon') ),
+  ('GalUtc', sb0_txt(GalUtc, 'GalUtc') ),
+  ('GalGstGps', sb0_txt(GalGstGps, 'GalGstGps') ),
+  ('GalSARRLM', GalSARRLM_txt(GalSARRLM, 'GalSARRLM') ),
+  ('GEOMT00', sb0_txt(GEOMT00, 'GEOMT00') ),
+  ('GEOPRNMask', GEOPRNMask_txt(GEOPRNMask, 'GEOPRNMask') ),
+  ('GEOFastCorr', sb1_txt(GEOFastCorr, 'GEOFastCorr', GEOFastCorr_FastCorr, 'FastCorr') ),
+  ('GEOIntegrity', sb0_txt(GEOIntegrity, 'GEOIntegrity') ),
+  ('GEOFastCorrDegr', sb0_txt(GEOFastCorrDegr, 'GEOFastCorrDegr') ),
+  ('GEODegrFactors', sb0_txt(GEODegrFactors, 'GEODegrFactors') ),
+  ('GEONetworkTime', sb0_txt(GEONetworkTime, 'GEONetworkTime') ),
+  ('GEONav', sb0_txt(GEONav, 'GEONav') ),
+  ('GEOAlm', sb0_txt(GEOAlm, 'GEOAlm') ),
+  ('GEOIGPMask', GEOIGPMask_txt(GEOIGPMask, 'GEOIGPMask') ),
+  ('GEOLongTermCorr', sb1_txt(GEOLongTermCorr, 'GEOLongTermCorr', GEOLongTermCorr_LTCorr, 'LTCorr') ),
+  ('GEOIonoDelay', sb1_txt(GEOIonoDelay, 'GEOIonoDelay', GEOIonoDelay_IDC, 'IDC') ),
+  ('GEOServiceLevel', sb1_txt(GEOServiceLevel, 'GEOServiceLevel', GEOServiceLevel_ServiceRegion, 'ServiceRegion') ),
+  ('GEOClockEphCovMatrix', sb1_txt(GEOClockEphCovMatrix, 'GEOClockEphCovMatrix', GEOClockEphCovMatrix_CovMatrix, 'CovMatrix') ),
+  ('PVTCartesian_v2', sb0_txt(PVTCartesian_v2, 'PVTCartesian_v2') ),
+  ('PVTGeodetic_v2', sb0_txt(PVTGeodetic_v2, 'PVTGeodetic_v2') ),
+  ('PosCovCartesian', sb0_txt(PosCovCartesian, 'PosCovCartesian') ),
+  ('PosCovGeodetic', sb0_txt(PosCovGeodetic, 'PosCovGeodetic') ),
+  ('VelCovCartesian', sb0_txt(VelCovCartesian, 'VelCovCartesian') ),
+  ('VelCovGeodetic', sb0_txt(VelCovGeodetic, 'VelCovGeodetic') ),
+  ('DOP_v2', sb0_txt(DOP_v2, 'DOP_v2') ),
+  ('PosCart', sb0_txt(PosCart, 'PosCart') ),
+  ('PVTSatCartesian', sb1_txt(PVTSatCartesian, 'PVTSatCartesian', PVTSatCartesian_SatPos, 'SatPos') ),
+  ('PVTResiduals_v2', PVTResiduals_txt(PVTResiduals_v2, 'PVTResiduals_v2',
+                                       PVTResiduals_v2_SatSignalInfo, 'SatSignalInfo', 
+                                       PVTResiduals_v2_ResidualInfo, 'ResidualInfo') ),
+  ('RAIMStatistics_v2', sb0_txt(RAIMStatistics_v2, 'RAIMStatistics_v2') ),
+  ('GEOCorrections', sb1_txt(GEOCorrections, 'GEOCorrections', GEOCorrections_SatCorr, 'SatCorr') ),
+  ('BaseVectorCart', sb1_txt(BaseVectorCart, 'BaseVectorCart', BaseVectorCart_VectorInfoCart, 'VectorInfoCart') ),
+  ('BaseVectorGeod', sb1_txt(BaseVectorGeod, 'BaseVectorGeod', BaseVectorGeod_VectorInfoGeod, 'VectorInfoGeod') ),
+  ('PVTSupport', sb0_txt(PVTSupport, 'PVTSupport') ),
+  ('EndOfPVT', sb0_txt(EndOfPVT, 'EndOfPVT') ),
+  ('IntPVCart', sb0_txt(IntPVCart, 'IntPVCart') ),
+  ('IntPVGeod', sb0_txt(IntPVGeod, 'IntPVGeod') ),
+  ('IntPosCovCart', sb0_txt(IntPosCovCart, 'IntPosCovCart') ),
+  ('IntVelCovCart', sb0_txt(IntVelCovCart, 'IntVelCovCart') ),
+  ('IntPosCovGeod', sb0_txt(IntPosCovGeod, 'IntPosCovGeod') ),
+  ('IntVelCovGeod', sb0_txt(IntVelCovGeod, 'IntVelCovGeod') ),
+  ('IntAttEuler', sb0_txt(IntAttEuler, 'IntAttEuler') ),
+  ('IntAttCovEuler', sb0_txt(IntAttCovEuler, 'IntAttCovEuler') ),
+  ('IntPVAAGeod', sb0_txt(IntPVAAGeod, 'IntPVAAGeod') ),
+  ('AuxAntPositions', sb1_txt(AuxAntPositions, 'AuxAntPositions', AuxAntPositions_AuxAntPosition, 'AuxAntPosition') ),
+  ('AttEuler', sb0_txt(AttEuler, 'AttEuler') ),
+  ('AttCovEuler', sb0_txt(AttCovEuler, 'AttCovEuler') ),
+  ('EndOfAtt', sb0_txt(EndOfAtt, 'EndOfAtt') ),
+  ('ReceiverTime', sb0_txt(ReceiverTime, 'ReceiverTime') ),
+  ('xPPSOffset', sb0_txt(xPPSOffset, 'xPPSOffset') ),
+  ('ExtEvent', sb0_txt(ExtEvent, 'ExtEvent') ) ,
+  ('ExtEventPVTCartesian', sb0_txt(ExtEventPVTCartesian, 'ExtEventPVTCartesian') ),
+  ('ExtEventPVTGeodetic', sb0_txt(ExtEventPVTGeodetic, 'ExtEventPVTGeodetic') ),
+  ('DiffCorrIn', sb0_txt(DiffCorrIn, 'DiffCorrIn') ),
+  ('BaseStation', sb0_txt(BaseStation, 'BaseStation') ),
+  ('LBandTrackerStatus', sb1_txt(LBandTrackerStatus, 'LBandTrackerStatus', LBandTrackerStatus_TrackData, 'TrackData') ),
+  ('LBAS1DecoderStatus', sb0_txt(LBAS1DecoderStatus, 'DecoderStatus') ),
+  ('LBAS1Messages', LBAS1Messages_txt(LBAS1Messages, 'LBAS1Messages') ),
+  ('ExtSensorMeas', sb1_txt(ExtSensorMeas, 'ExtSensorMeas', ExtSensorMeas_MeasSet, 'MeasSet') ),
+  ('ExtSensorStatus', ExtSensorStatus_txt(ExtSensorStatus, 'ExtSensorStatus') ),
+  ('ExtSensorSetup', sb1_txt(ExtSensorSetup, 'ExtSensorSetup', ExtSensorSetup_OneSensor, 'OneSensor') ),
+  ('ChannelStatus', sb2_txt(ChannelStatus, 'ChannelStatus', ChannelStatus_ChannelSatInfo, 'ChannelSatInfo',
+                            ChannelStatus_ChannelStateInfo, 'ChannelStateInfo') ),
+  ('ReceiverStatus_v2', sb1_txt(ReceiverStatus_v2, 'ReceiverStatus_v2', ReceiverStatus_v2_AGCData, 'AGCData') ),
+  ('SatVisibility', sb1_txt(SatVisibility, 'SatVisibility', SatVisibility_SatInfo, 'SatInfo') ),
+  ('InputLink', sb1_txt(InputLink, 'InputLink', InputLink_InputStats, 'InputStats') ),
+  ('OutputLink', sb2_txt(OutputLink, 'OutputLink', OutputLink_OutputStats, 'OutputStats', OutputLink_OutputType, 'OutputType') ),
+  ('IPStatus', sb0_txt(IPStatus, 'IPStatus') ),
+  ('ReceiverSetup', sb0_txt(ReceiverSetup, 'ReceiverSetup') ),
+  ('Commands', sb0_txt(Commands, 'Commands') ),
+  ('Comment', Comment_txt(Comment, 'Comment') ),
+  ('BBSamples', BBSamples_txt(BBSamples, 'BBSamples') ),
+  ('ASCIIIn', ASCIIIn_txt(ASCIIIn, 'ASCIIIn') ),
  )
  pyx_f = open(pyx_filename, 'w')
  pxd_f = open(pxd_filename, 'w')

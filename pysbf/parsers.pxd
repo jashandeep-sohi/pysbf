@@ -110,24 +110,12 @@ cdef struct IQCorr_CorrChannel:
  u2 CarrierPhaseLSB
 
 
-cdef struct EndOfAtt:
+cdef struct EndOfMeas:
  u4 TOW
  u2 WNc
 
 
-cdef struct QZSRawL5:
- u4 TOW
- u2 WNc
- u1 SVID
- u1 CRCPassed
- u1 ViterbiCount
- u1 Source
- u1 FreqNr
- u1 Reserved_0
- u4[10] NAVBits
-
-
-cdef struct QZSRawL5:
+cdef struct GPSRawCA:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -139,7 +127,19 @@ cdef struct QZSRawL5:
  u4[10] NAVBits
 
 
-cdef struct QZSRawL5:
+cdef struct GPSRawL2C:
+ u4 TOW
+ u2 WNc
+ u1 SVID
+ u1 CRCPassed
+ u1 ViterbiCount
+ u1 Source
+ u1 FreqNr
+ u1 Reserved_0
+ u4[10] NAVBits
+
+
+cdef struct GPSRawL5:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -163,7 +163,7 @@ cdef struct GLORawCA:
  u4[3] NAVBits
 
 
-cdef struct GEORawL1:
+cdef struct GALRawFNAV:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -175,7 +175,7 @@ cdef struct GEORawL1:
  u4[8] NAVBits
 
 
-cdef struct GEORawL1:
+cdef struct GALRawINAV:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -211,7 +211,7 @@ cdef struct GEORawL1:
  u4[8] NAVBits
 
 
-cdef struct QZSRawL5:
+cdef struct CMPRaw:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -223,7 +223,7 @@ cdef struct QZSRawL5:
  u4[10] NAVBits
 
 
-cdef struct QZSRawL5:
+cdef struct QZSRawL1CA:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -235,7 +235,7 @@ cdef struct QZSRawL5:
  u4[10] NAVBits
 
 
-cdef struct QZSRawL5:
+cdef struct QZSRawL2C:
  u4 TOW
  u2 WNc
  u1 SVID
@@ -738,7 +738,7 @@ cdef struct GEOClockEphCovMatrix_CovMatrix:
  i2 E34
 
 
-cdef struct ExtEventPVTCartesian:
+cdef struct PVTCartesian_v2:
  u4 TOW
  u2 WNc
  u1 Mode
@@ -765,7 +765,7 @@ cdef struct ExtEventPVTCartesian:
  u1[2] Reserved_0
 
 
-cdef struct ExtEventPVTGeodetic:
+cdef struct PVTGeodetic_v2:
  u4 TOW
  u2 WNc
  u1 Mode
@@ -904,14 +904,14 @@ cdef struct PosCart:
  u4 SignalInfo
 
 
-cdef struct InputLink:
+cdef struct PVTSatCartesian:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_SatPos:
+cdef struct PVTSatCartesian_SatPos:
  u1 SVID
  u1 FreqNr
  u2 IODE
@@ -962,14 +962,14 @@ cdef struct RAIMStatistics_v2:
  u1[2] Reserved_1
 
 
-cdef struct InputLink:
+cdef struct GEOCorrections:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_SatCorr:
+cdef struct GEOCorrections_SatCorr:
  u1 SVID
  u1 IODE
  u1[2] Reserved_0
@@ -990,14 +990,14 @@ cdef struct InputLink_SatCorr:
  f4 VarTropo
 
 
-cdef struct InputLink:
+cdef struct BaseVectorCart:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_VectorInfoCart:
+cdef struct BaseVectorCart_VectorInfoCart:
  u1 NrSV
  u1 Error
  u1 Mode
@@ -1015,14 +1015,14 @@ cdef struct InputLink_VectorInfoCart:
  u4 SignalInfo
 
 
-cdef struct InputLink:
+cdef struct BaseVectorGeod:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_VectorInfoGeod:
+cdef struct BaseVectorGeod_VectorInfoGeod:
  u1 NrSV
  u1 Error
  u1 Mode
@@ -1040,12 +1040,12 @@ cdef struct InputLink_VectorInfoGeod:
  u4 SignalInfo
 
 
-cdef struct EndOfAtt:
+cdef struct PVTSupport:
  u4 TOW
  u2 WNc
 
 
-cdef struct EndOfAtt:
+cdef struct EndOfPVT:
  u4 TOW
  u2 WNc
 
@@ -1200,14 +1200,14 @@ cdef struct IntPVAAGeod:
  i2 Roll
 
 
-cdef struct InputLink:
+cdef struct AuxAntPositions:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_AuxAntPosition:
+cdef struct AuxAntPositions_AuxAntPosition:
  u1 NrSV
  u1 Error
  u1 AmbiguityType
@@ -1362,14 +1362,14 @@ cdef struct BaseStation:
  f8 Z
 
 
-cdef struct InputLink:
+cdef struct LBandTrackerStatus:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_TrackData:
+cdef struct LBandTrackerStatus_TrackData:
  u4 Frequency
  u2 Baudrate
  u2 ServiceID
@@ -1384,7 +1384,7 @@ cdef struct InputLink_TrackData:
  u2 Reserved_1
 
 
-cdef struct LBAS1DecoderStatus:
+cdef struct DecoderStatus:
  u4 TOW
  u2 WNc
  u2 Reserved_0
@@ -1402,14 +1402,14 @@ cdef struct LBAS1Messages:
  c1* Message
 
 
-cdef struct InputLink:
+cdef struct ExtSensorMeas:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_MeasSet:
+cdef struct ExtSensorMeas_MeasSet:
  u1 Source
  u1 SensorModel
  u1 Type
@@ -1429,20 +1429,20 @@ cdef struct ExtSensorStatus:
  u1* StatusBits
 
 
-cdef struct InputLink:
+cdef struct ExtSensorSetup:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_OneSensor:
+cdef struct ExtSensorSetup_OneSensor:
  u1 Source
  u1 SensorModel
  u2 MeasType
 
 
-cdef struct OutputLink:
+cdef struct ChannelStatus:
  u4 TOW
  u2 WNc
  u1 N1
@@ -1451,7 +1451,7 @@ cdef struct OutputLink:
  u1[3] Reserved_0
 
 
-cdef struct OutputLink_ChannelSatInfo:
+cdef struct ChannelStatus_ChannelSatInfo:
  u1 SVID
  u1 FreqNr
  u2 Reserved_0
@@ -1463,7 +1463,7 @@ cdef struct OutputLink_ChannelSatInfo:
  u1 Reserved_1
 
 
-cdef struct OutputLink_ChannelStateInfo:
+cdef struct ChannelStatus_ChannelStateInfo:
  u1 Antenna
  u1 Reserved_0
  u2 TrackingStatus
@@ -1491,14 +1491,14 @@ cdef struct ReceiverStatus_v2_AGCData:
  u1 BlankingStat
 
 
-cdef struct InputLink:
+cdef struct SatVisibility:
  u4 TOW
  u2 WNc
  u1 N
  u1 SBLength
 
 
-cdef struct InputLink_SatInfo:
+cdef struct SatVisibility_SatInfo:
  u1 SVID
  u1 FreqNr
  u2 Azimuth
