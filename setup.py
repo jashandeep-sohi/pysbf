@@ -16,8 +16,7 @@
 
 from distutils.core import setup, Extension
 
-def Main():
- cythonize = False
+def Main(cythonize=False):
  
  try:
   from Cython.Distutils import build_ext

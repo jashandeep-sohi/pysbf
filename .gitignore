@@ -2,4 +2,3 @@
 *.pyc
 build/
 dist/
-setup-prod.py
