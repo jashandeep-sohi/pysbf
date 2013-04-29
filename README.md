@@ -27,6 +27,11 @@ For example,
 
 ## Usage
 
+The basic function of this module is to parse every block inside a SBF file into a map.
+Therefore, the `dict` built-in Python object is used to represent each block. 
+
+### Functions
+`load(f_obj, limit=-1, blocknames=set())`: 
 TBA
 
 
