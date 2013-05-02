@@ -20,12 +20,10 @@ def Main(cythonize=False):
  
  try:
   from Cython.Distutils import build_ext
-  from parser_cdef import writeParserFiles
  except:
   cythonize = False
  
- if cythonize == True:  
-  writeParserFiles('pysbf/parsers.pyx', 'pysbf/parsers.pxd') 
+ if cythonize == True:
   ext_modules = [
    Extension('pysbf.sbf', ['pysbf/sbf.pyx'], include_dirs=['pysbf', '.']),
    Extension('pysbf.blocks', ['pysbf/blocks.py'], include_dirs=['pysbf', '.']),
