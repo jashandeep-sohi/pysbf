@@ -287,6 +287,8 @@ cdef struct GPSNav:
  f4 C_us
  f8 SQRT_A
  u4 T_oe
+ f4 C_ic
+ f8 OMEGA_0
  f4 C_is
  f8 I_0
  f4 C_rc

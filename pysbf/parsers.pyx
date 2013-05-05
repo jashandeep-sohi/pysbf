@@ -438,6 +438,8 @@ def GPSNav_toDict(c1 *data):
  block_dict['C_us'] = sb0.C_us
  block_dict['SQRT_A'] = sb0.SQRT_A
  block_dict['T_oe'] = sb0.T_oe
+ block_dict['C_ic'] = sb0.C_ic
+ block_dict['OMEGA_0'] = sb0.OMEGA_0
  block_dict['C_is'] = sb0.C_is
  block_dict['I_0'] = sb0.I_0
  block_dict['C_rc'] = sb0.C_rc
