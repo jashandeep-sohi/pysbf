@@ -2,4 +2,3 @@
 *.pyc
 build/
 dist/
-genCythonParsers.py
