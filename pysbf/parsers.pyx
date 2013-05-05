@@ -16,11 +16,13 @@
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 cdef dict BLOCKPARSERS = dict()
+cdef dict BLOCKPARSERS_BYTES = dict()
 
 def unknown_toDict(c1 *data):
  return dict()
  
 BLOCKPARSERS['Unknown'] = unknown_toDict
+BLOCKPARSERS_BYTES['Unknown'] = unknown_toDict
 
 def MeasEpoch_v2_toDict(c1 *data):
  cdef MeasEpoch_v2 *sb0

@@ -47,6 +47,7 @@ ctypedef double f8
 ctypedef char c1
 
 cdef dict BLOCKPARSERS
+cdef dict BLOCKPARSERS_BYTES
 """
 
 PARSERS_PYX_HEADER = """
@@ -67,11 +68,13 @@ PARSERS_PYX_HEADER = """
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 cdef dict BLOCKPARSERS = dict()
+cdef dict BLOCKPARSERS_BYTES = dict()
 
 def unknown_toDict(c1 *data):
  return dict()
  
 BLOCKPARSERS['Unknown'] = unknown_toDict
+BLOCKPARSERS_BYTES['Unknown'] = unknown_toDict
 """
 
 SB0_CYFUNC_TEMPLATE = """
@@ -85,6 +88,19 @@ def {func_name}(c1 *data):
 
 BLOCKPARSERS['{sb0_name}'] = {func_name}
 """
+
+SB0_CYFUNC_TEMPLATE_BYTES = """
+def {func_name}(c1 *data):
+ cdef {sb0_st_name} *sb0
+ sb0 = <{sb0_st_name} *>data
+ 
+ block_dict = dict()
+{sb0_as_dict_bytes}
+ return block_dict
+
+BLOCKPARSERS_BYTES['{sb0_name}'] = {func_name}
+"""
+
 SB1_CYFUNC_TEMPLATE = """
 def {func_name}(c1 *data):
  cdef {sb0_st_name} *sb0
@@ -115,6 +131,37 @@ def {func_name}(c1 *data):
 
 BLOCKPARSERS['{sb0_name}'] = {func_name}
 """
+SB1_CYFUNC_TEMPLATE_BYTES = """
+def {func_name}(c1 *data):
+ cdef {sb0_st_name} *sb0
+ cdef {sb1_st_name} *sb1
+ cdef size_t i
+ 
+ cdef {sb1_st_name} **sb1s
+ 
+ sb0 = <{sb0_st_name} *>data
+ i = sizeof( {sb0_st_name} )
+ 
+ block_dict = dict()
+{sb0_as_dict_bytes}
+ 
+ sb1s = <{sb1_st_name} **>malloc( sb0.N * sizeof( {sb1_st_name} * ) )
+ 
+ sb1_list = [None] * sb0.N
+ block_dict['{sb1_name}'] = sb1_list
+ 
+ for n in xrange(sb0.N):
+  sb1 = sb1s[n] = <{sb1_st_name}*>(data + i)
+  i += sb0.SBLength
+  sb1_dict = dict()
+  sb1_list[n] = sb1_dict
+{sb1_as_dict_bytes} 
+ free(sb1s)
+ return block_dict
+
+BLOCKPARSERS_BYTES['{sb0_name}'] = {func_name}
+"""
+
 SB2_CYFUNC_TEMPLATE = """
 def {func_name}(c1 *data):
  cdef {sb0_st_name} *sb0
@@ -160,6 +207,53 @@ def {func_name}(c1 *data):
  return block_dict
 
 BLOCKPARSERS['{sb0_name}'] = {func_name}
+"""
+
+SB2_CYFUNC_TEMPLATE_BYTES = """
+def {func_name}(c1 *data):
+ cdef {sb0_st_name} *sb0
+ cdef {sb1_st_name} *sb1
+ cdef {sb2_st_name} *sb2
+ cdef size_t i
+ 
+ cdef {sb1_st_name} **sb1s
+ cdef {sb2_st_name} ***sb2s
+ 
+ sb0 = <{sb0_st_name} *>data
+ i = sizeof( {sb0_st_name} )
+ 
+ block_dict = dict()
+{sb0_as_dict_bytes}
+ 
+ sb1s = <{sb1_st_name} **>malloc( sb0.N1 * sizeof( {sb1_st_name} * ) )
+ sb2s = <{sb2_st_name} ***>malloc( sb0.N1 * sizeof( {sb1_st_name} * ) )
+ 
+ sb1_list = [None] * sb0.N1
+ block_dict['{sb1_name}'] = sb1_list
+ 
+ for n1 in xrange(sb0.N1):
+  sb1 = sb1s[n1] = <{sb1_st_name}*>(data + i)
+  i += sb0.SB1Length
+  sb1_dict = dict()
+  sb1_list[n1] = sb1_dict
+{sb1_as_dict_bytes}
+  
+  sb2s[n1] = <{sb2_st_name} **>malloc( sb1.N2 * sizeof( {sb2_st_name} * ) )
+  sb2_list = [None] * sb1.N2
+  sb1_dict['{sb2_name}'] = sb2_list
+  
+  for n2 in xrange(sb1.N2):
+   sb2 = sb2s[n1][n2] = <{sb2_st_name}*>(data + i)
+   i += sb0.SB2Length
+   sb2_dict = dict()
+   sb2_list[n2] = sb2_dict
+{sb2_as_dict_bytes}
+  free(sb2s[n1])
+ free(sb2s)
+ free(sb1s)
+ return block_dict
+
+BLOCKPARSERS_BYTES['{sb0_name}'] = {func_name}
 """
 
 PVTResiduals_CYFUNC_TEMPLATE = """
@@ -218,8 +312,64 @@ def {func_name}(c1 *data):
 BLOCKPARSERS['{sb0_name}'] = {func_name}
 """
 
+PVTResiduals_CYFUNC_TEMPLATE_BYTES = """
+def {func_name}(c1 *data):
+ cdef {sb0_st_name} *sb0
+ cdef {sb1_st_name} *sb1
+ cdef {sb2_st_name} *sb2
+ cdef size_t i
+ cdef i1 sb1_N2
+ 
+ cdef {sb1_st_name} **sb1s
+ cdef {sb2_st_name} ***sb2s
+ 
+ sb0 = <{sb0_st_name} *>data
+ i = sizeof( {sb0_st_name} )
+ 
+ block_dict = dict()
+{sb0_as_dict_bytes}
+ 
+ sb1s = <{sb1_st_name} **>malloc( sb0.N * sizeof( {sb1_st_name} * ) )
+ sb2s = <{sb2_st_name} ***>malloc( sb0.N * sizeof( {sb1_st_name} * ) )
+ 
+ sb1_list = [None] * sb0.N
+ block_dict['{sb1_name}'] = sb1_list
+ 
+ for n1 in xrange(sb0.N):
+  sb1 = sb1s[n1] = <{sb1_st_name}*>(data + i)
+  i += sb0.SB1Length
+  sb1_dict = dict()
+  sb1_list[n1] = sb1_dict
+{sb1_as_dict_bytes}
+  
+  sb1_N2 = 0
+  if sb1.MeasInfo & (1 << 2):
+   sb1_N2 += 1
+  if sb1.MeasInfo & (1 << 3):
+   sb1_N2 += 1
+  if sb1.MeasInfo & (1 << 4):
+   sb1_N2 += 1
+   
+  sb2s[n1] = <{sb2_st_name} **>malloc( sb1_N2 * sizeof( {sb2_st_name} * ) )
+  sb2_list = [None] * sb1_N2
+  sb1_dict['{sb2_name}'] = sb2_list
+  
+  for n2 in xrange(sb1_N2):
+   sb2 = sb2s[n1][n2] = <{sb2_st_name}*>(data + i)
+   i += sb0.SB2Length
+   sb2_dict = dict()
+   sb2_list[n2] = sb2_dict
+{sb2_as_dict_bytes}
+  free(sb2s[n1])
+ free(sb2s)
+ free(sb1s)
+ return block_dict
+
+BLOCKPARSERS_BYTES['{sb0_name}'] = {func_name}
+"""
+
 def blockDef_cyStructTxt(blockDef, structName):
- s = '\n\ncdef struct {}:\n'.format(structName)
+ s = '\n\ncdef packed struct {}:\n'.format(structName)
  reserved_i = 0
  for pName, pType in blockDef:
   if pName == 'Reserved':
@@ -227,6 +377,7 @@ def blockDef_cyStructTxt(blockDef, structName):
    reserved_i += 1
   s += ' {} {}\n'.format(pType, pName)
  return s
+
 
 def sb_dictTxt(blockDef, dict_name, sb_name, indent, ignore={}):
  indent_str = ' ' * indent
