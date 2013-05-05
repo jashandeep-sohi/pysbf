@@ -33,9 +33,14 @@ cdef struct Header:
  uint16_t Length
 
 def load(fobj, size_t limit=-1, blocknames=set()):
+ try:
+  fileno = fobj.fileno()
+ except:
+  raise Exception('Could not obtain fileno from file-like object')
+  
  cdef Header h
+ cdef FILE *f = fdopen(fileno, 'rb')
  cdef uint16_t blockno
- cdef FILE *f = fdopen(fobj.fileno(), 'rb')
  cdef void *body_ptr
  cdef size_t body_length
  

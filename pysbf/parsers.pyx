@@ -204,7 +204,7 @@ def GPSRawCA_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -222,7 +222,7 @@ def GPSRawL2C_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -240,7 +240,7 @@ def GPSRawL5_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -312,7 +312,7 @@ def GALRawCNAV_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:64]
 
  return block_dict
 
@@ -348,7 +348,7 @@ def CMPRaw_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -366,7 +366,7 @@ def QZSRawL1CA_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -384,7 +384,7 @@ def QZSRawL2C_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -402,7 +402,7 @@ def QZSRawL5_toDict(c1 *data):
  block_dict['ViterbiCount'] = sb0.ViterbiCount
  block_dict['Source'] = sb0.Source
  block_dict['FreqNr'] = sb0.FreqNr
- block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:4]
+ block_dict['NAVBits'] = (<c1*>sb0.NAVBits)[0:40]
 
  return block_dict
 
@@ -808,7 +808,7 @@ def GEOIntegrity_toDict(c1 *data):
  block_dict['WNc'] = sb0.WNc
  block_dict['PRN'] = sb0.PRN
  block_dict['IODF'] = (<c1*>sb0.IODF)[0:4]
- block_dict['UDREI'] = (<c1*>sb0.UDREI)[0:5]
+ block_dict['UDREI'] = (<c1*>sb0.UDREI)[0:51]
 
  return block_dict
 
@@ -824,7 +824,7 @@ def GEOFastCorrDegr_toDict(c1 *data):
  block_dict['PRN'] = sb0.PRN
  block_dict['IODP'] = sb0.IODP
  block_dict['t_lat'] = sb0.t_lat
- block_dict['AI'] = (<c1*>sb0.AI)[0:5]
+ block_dict['AI'] = (<c1*>sb0.AI)[0:51]
 
  return block_dict
 
@@ -2533,8 +2533,8 @@ def IPStatus_toDict(c1 *data):
  block_dict['TOW'] = sb0.TOW
  block_dict['WNc'] = sb0.WNc
  block_dict['MACAddress'] = (<c1*>sb0.MACAddress)[0:6]
- block_dict['IPAddress'] = (<c1*>sb0.IPAddress)[0:1]
- block_dict['Gateway'] = (<c1*>sb0.Gateway)[0:1]
+ block_dict['IPAddress'] = (<c1*>sb0.IPAddress)[0:16]
+ block_dict['Gateway'] = (<c1*>sb0.Gateway)[0:16]
  block_dict['Netmask'] = sb0.Netmask
 
  return block_dict
@@ -2548,21 +2548,21 @@ def ReceiverSetup_toDict(c1 *data):
  block_dict = dict()
  block_dict['TOW'] = sb0.TOW
  block_dict['WNc'] = sb0.WNc
- block_dict['MarkerName'] = (<c1*>sb0.MarkerName)[0:6]
- block_dict['MarkerNumber'] = (<c1*>sb0.MarkerNumber)[0:2]
- block_dict['Observer'] = (<c1*>sb0.Observer)[0:2]
- block_dict['Agency'] = (<c1*>sb0.Agency)[0:4]
- block_dict['RxSerialNumber'] = (<c1*>sb0.RxSerialNumber)[0:2]
- block_dict['RxName'] = (<c1*>sb0.RxName)[0:2]
- block_dict['RxVersion'] = (<c1*>sb0.RxVersion)[0:2]
- block_dict['AntSerialNbr'] = (<c1*>sb0.AntSerialNbr)[0:2]
- block_dict['AntType'] = (<c1*>sb0.AntType)[0:2]
+ block_dict['MarkerName'] = (<c1*>sb0.MarkerName)[0:60]
+ block_dict['MarkerNumber'] = (<c1*>sb0.MarkerNumber)[0:20]
+ block_dict['Observer'] = (<c1*>sb0.Observer)[0:20]
+ block_dict['Agency'] = (<c1*>sb0.Agency)[0:40]
+ block_dict['RxSerialNumber'] = (<c1*>sb0.RxSerialNumber)[0:20]
+ block_dict['RxName'] = (<c1*>sb0.RxName)[0:20]
+ block_dict['RxVersion'] = (<c1*>sb0.RxVersion)[0:20]
+ block_dict['AntSerialNbr'] = (<c1*>sb0.AntSerialNbr)[0:20]
+ block_dict['AntType'] = (<c1*>sb0.AntType)[0:20]
  block_dict['DeltaH'] = sb0.DeltaH
  block_dict['DeltaE'] = sb0.DeltaE
  block_dict['DeltaN'] = sb0.DeltaN
- block_dict['MarkerType'] = (<c1*>sb0.MarkerType)[0:2]
- block_dict['GNSSFWVersion'] = (<c1*>sb0.GNSSFWVersion)[0:4]
- block_dict['ProductName'] = (<c1*>sb0.ProductName)[0:4]
+ block_dict['MarkerType'] = (<c1*>sb0.MarkerType)[0:20]
+ block_dict['GNSSFWVersion'] = (<c1*>sb0.GNSSFWVersion)[0:40]
+ block_dict['ProductName'] = (<c1*>sb0.ProductName)[0:40]
 
  return block_dict
 
