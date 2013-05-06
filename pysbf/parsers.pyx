@@ -641,7 +641,6 @@ def GalAlm_toDict(c1 *data):
  block_dict['Delta_i'] = sb0.Delta_i
  block_dict['OMEGADOT'] = sb0.OMEGADOT
  block_dict['DeltaSQRT_A'] = sb0.DeltaSQRT_A
- block_dict['OMEGA_o'] = sb0.OMEGA_o
  block_dict['OMEGA_0'] = sb0.OMEGA_0
  block_dict['Omega'] = sb0.Omega
  block_dict['M_0'] = sb0.M_0

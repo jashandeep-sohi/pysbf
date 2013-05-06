@@ -446,7 +446,6 @@ cdef packed struct GalAlm:
  f4 Delta_i
  f4 OMEGADOT
  f4 DeltaSQRT_A
- f4 OMEGA_o
  f4 OMEGA_0
  f4 Omega
  f4 M_0
