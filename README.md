@@ -32,15 +32,14 @@ Therefore, the `dict` built-in Python object is used to represent each block.
 
 ### Functions
 
-* #####`load(f_obj, limit=-1, blocknames=set())`:  
- Returns a iterator/generator of SBF blocks.
+#### `load(f_obj, limit=-1, blocknames=set())`:
+- Returns a iterator/generator of SBF blocks.  
+ `f_obj` should be a file object.  
 
- `f_obj` should be a file object.
-
- By default every type of block is generated, however most of the time only certain types
- of blocks are needed. This can be accomplished by providing a set of block names to 
- the `blocknames` parameter.
-
+  By default every type of block is generated, however most of the time only certain types
+  of blocks are needed. This can be accomplished by providing a set of block names to 
+  the `blocknames` parameter.  
+  
  `limit` limits the number of blocks generated.  
 
 
