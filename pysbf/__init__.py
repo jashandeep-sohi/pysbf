@@ -1,1 +1,1 @@
-from sbf import *
+from sbf import load
