@@ -55,7 +55,7 @@ static const uint16_t CRC_16CCIT_TABLE[256] = {
   0x6e17, 0x7e36, 0x4e55, 0x5e74, 0x2e93, 0x3eb2, 0x0ed1, 0x1ef0
 };
 
-uint16_t crc16(const void *buf, size_t buf_length, uint16_t crc){
+uint16_t c_crc16(const void *buf, size_t buf_length, uint16_t crc){
   const uint8_t *buf8 = buf;
   while (buf_length--)
    crc = (crc << 8) ^ CRC_16CCIT_TABLE[ (crc >> 8) ^ *buf8++ ];

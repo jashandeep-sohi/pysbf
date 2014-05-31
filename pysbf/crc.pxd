@@ -16,7 +16,6 @@
 
 from libc.stdint cimport uint16_t
 
-cdef extern from 'c_crc.c':
- const uint16_t CRC_16CCIT_TABLE[256]
- uint16_t crc16(const void*, size_t, uint16_t) except -1
+cdef extern const uint16_t CRC_16CCIT_TABLE[256]
+cdef extern uint16_t crc16 "c_crc16" (const void*, size_t, uint16_t) except -1
 
