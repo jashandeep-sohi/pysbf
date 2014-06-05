@@ -23,9 +23,6 @@ from libc.stdint cimport uint16_t, uint8_t
 from libc.stdio cimport fread, fdopen, FILE, fseek, SEEK_CUR
 from libc.stdlib cimport malloc, free
 
-from crc cimport crc16
-
-
 cdef struct Header:
  uint16_t Sync
  uint16_t CRC

@@ -1,3 +1,4 @@
+/*
 #This file is part of "pysbf".
 #Copyright (c) 2013, Jashandeep Sohi (jashandeep.s.sohi@gmail.com)
 #
@@ -14,8 +15,5 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from libc.stdint cimport uint16_t
-
-cdef extern const uint16_t CRC_16CCIT_TABLE[256]
-cdef extern uint16_t crc16 "c_crc16" (const void*, size_t, uint16_t) except -1
-
+*/
+uint16_t crc16(const void *buf, size_t buf_length, uint16_t crc);
