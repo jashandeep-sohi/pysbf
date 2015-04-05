@@ -14,6 +14,45 @@
     <![endif]-->
 
     <title>pysbf by jashandeep-sohi</title>
+    <script>
+    //Simple Google Analytics pageviews tracker using the Measurement Protocol.
+    (function(tid, undefined){
+
+     if(cid_match = /ga_cid=([^;])/.exec(document.cookie)) {
+      var cid = cid_match[1];
+     } else {
+      var cid = [
+       Math.random().toString(36).substring(2),
+       Math.random().toString(36).substring(2),
+       Math.random().toString(36).substring(2),
+      ].join("");
+     }
+
+     var cid_expires = new Date(new Date().getTime() + 2592000000);
+     document.cookie = [
+     "ga_cid=" + cid,
+     "expires=" + cid_expires.toUTCString()
+     ].join(";");
+
+     var params = {
+      v: 1,
+      tid: tid,
+      cid: cid,
+      t: "pageview",
+      dl: encodeURIComponent(document.location.href),
+      dr: encodeURIComponent(document.referrer),
+      de: encodeURIComponent(document.characterSet),
+      dt: encodeURIComponent(document.title)
+     };
+     var xhrReq = new XMLHttpRequest();
+     xhrReq.open("POST", "https://ssl.google-analytics.com/collect");
+     xhrReq.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+     xhrReq.send(Object.keys(params).map(function(value) {
+      return value + "=" + params[value];
+     }).join("&"));
+
+    })("UA-54890133-1");
+    </script>
   </head>
 
   <body>
@@ -145,17 +184,5 @@ the <code>blocknames</code> parameter.  </p>
         </aside>
       </div>
     </div>
-
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-54890133-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
   </body>
 </html>
